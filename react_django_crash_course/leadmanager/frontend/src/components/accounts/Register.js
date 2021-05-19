@@ -13,6 +13,11 @@ export class Register extends Component {
     password2: "",
   };
 
+  static propTypes = {
+    register: PropTypes.func.isRequired,
+    isAuthenticated: PropTypes.bool,
+  };
+
   onSubmit = (e) => {
     e.preventDefault();
     const { username, email, password, password2 } = this.state;
@@ -82,12 +87,6 @@ export class Register extends Component {
     );
   }
 }
-
-const propTypes = {
-  register: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool,
-  createMessage: PropTypes.func.isRequired,
-};
 
 const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
